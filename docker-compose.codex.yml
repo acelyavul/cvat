@@ -1,0 +1,20 @@
+name: cvat
+
+services:
+  cvat_server:
+    container_name: cvat_server
+    platform: linux/amd64
+    image: cvat/server-codex:v2.66.0
+    build:
+      context: .
+      dockerfile: Dockerfile.codex
+    restart: always
+    volumes:
+      - cvat_data:/home/django/data
+      - cvat_keys:/home/django/keys
+      - cvat_logs:/home/django/logs
+      - cvat_codex_home:/root/.codex
+      - ./cvat-tools:/home/django/cvat-tools
+
+volumes:
+  cvat_codex_home:
