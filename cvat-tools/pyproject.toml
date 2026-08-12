@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvat-tools"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "cvat-sdk==2.66.0",
+    "Pillow",
+    "python-dotenv",
+    "typer",
+    "rich",
+]
+
+[project.scripts]
+cvat-tools = "cvat_tools.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["typer.Option", "typer.Argument"]
