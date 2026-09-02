@@ -339,7 +339,7 @@ jobs:
     needs: [unit_testing, e2e_testing]
     if: always()
 
-    uses: acelyavul/cvat/.github/workflows//generate-allure-report.yml
+    uses: ./.github/workflows/generate-allure-report.yml
     permissions:
         contents: read
         id-token: write
