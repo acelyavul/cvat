@@ -339,6 +339,9 @@ jobs:
     needs: [unit_testing, e2e_testing]
     if: always()
 
-    uses: ./.github/workflows/generate-allure-report.yml
+    uses: acelyavul/cvat/.github/workflows//generate-allure-report.yml
+    permissions:
+        contents: read
+        id-token: write
     secrets:
       AWS_ALLURE_REPORTS_ROLE: ${{ secrets.AWS_ALLURE_REPORTS_ROLE }}
